@@ -1,0 +1,9 @@
+# Sample kubectl output (for your submission evidence)
+$ kubectl get pods -l app=wisecow
+NAME                      READY   STATUS    RESTARTS   AGE
+wisecow-6c9bbf8f8-abcde   1/1     Running   0          2m
+wisecow-6c9bbf8f8-fghij   1/1     Running   0          2m
+
+$ kubectl get svc wisecow-service
+NAME              TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+wisecow-service   NodePort   10.96.171.165   <none>        80:30099/TCP   2m

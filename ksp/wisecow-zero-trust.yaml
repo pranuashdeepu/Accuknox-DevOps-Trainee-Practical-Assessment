@@ -1,0 +1,22 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: wisecow-zero-trust
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  file:
+    matchPaths:
+      - path: /etc/passwd
+        action: Audit
+  process:
+    matchPaths:
+      - path: /bin/sh
+        action: Block
+  network:
+    - direction: Ingress
+      action: Audit
+      matchPaths:
+        - path: "tcp:4499"
